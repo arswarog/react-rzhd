@@ -3,6 +3,10 @@ export enum StationInputType {
     to = 'to'
 }
 
-function StationInput(type: StationInputType) {
-    return <input id={'station-input-' + type}/>
+interface IProps {
+    type: StationInputType
+}
+
+export function StationInput(props: IProps) {
+    return <input id={'station-input-' + props.type}/>
 }
