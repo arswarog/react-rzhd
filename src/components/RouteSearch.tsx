@@ -1,4 +1,3 @@
-import './RouteSearch.css';
 import React from 'react';
 
 export function RouteSearch() {
