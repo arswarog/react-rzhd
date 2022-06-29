@@ -1,4 +1,3 @@
-import React from 'react';
 import { StationInput, StationInputType } from './StationInput';
 
 export function RouteSearch() {
