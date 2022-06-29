@@ -1,11 +1,12 @@
 import React from 'react';
+import { StationInput, StationInputType } from './StationInput';
 
 export function RouteSearch() {
     return (
         <div className="RouteSearch">
-            <div>Import Form</div>
+            <StationInput type={StationInputType.from}></StationInput>
             <div>Arrow</div>
-            <div>Import Form</div>
+            <StationInput type={StationInputType.to}></StationInput>
             <div>Button</div>
         </div>
     );
