@@ -1,7 +1,6 @@
-// from TicketPreview import TicketPreview
+import { TicketPreview } from "./TicketPreview"
 
 export function TicketPreviewList() {
-    return (
-        <div>TicketPreview here</div>
-    )
+    return <TicketPreview/>
 }
+
