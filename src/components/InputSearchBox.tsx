@@ -1,3 +1,3 @@
 export function InputSearchBox() {
-    return <div>InputSearchBox</div>
+    return <div>InputSearchBox</div>;
 }
