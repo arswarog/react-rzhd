@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
-import logo from './logo.svg';
+import { allRoutes } from './data/routes';
 
 const initialData = [
     { id: 1, title: '123' },
@@ -24,28 +25,12 @@ function App() {
         ]);
     }
 
-    console.log('render');
-
     return (
         <div className="App">
             <Section>
-                <SectionLeftContent title="Станции">
-                    <div>hello</div>
-                </SectionLeftContent>
+                <SectionLeftContent title="Станции">stations</SectionLeftContent>
                 <SectionRightContent title="Маршруты">
-                    <ul className="station-list" id="route-list">
-                        <template id="route-list-item">
-                            <li className="station-list__item">
-                                <h4 className="station-list__title" data-source="name">Кисловодск</h4>
-                                <div className="station-list__info">
-                                    <span className="data">
-                                        <span className="data__name">ID:</span>
-                                        <span className="data__value" data-source="id">2</span>
-                                    </span>
-                                </div>
-                            </li>
-                        </template>
-                    </ul>
+                    <RouteList routes={allRoutes} />
                 </SectionRightContent>
             </Section>
 
