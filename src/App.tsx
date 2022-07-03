@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { Button } from './components/Button';
 import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
 import { allRoutes } from './data/routes';
@@ -34,7 +35,7 @@ function App() {
                 </SectionRightContent>
             </Section>
 
-            <button onClick={addItem}>add item</button>
+            <Button onClick={addItem}>add item</Button>
 
             <ul>
                 {data.map((item) => (

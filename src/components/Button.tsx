@@ -7,17 +7,22 @@ export enum ButtonType {
 }
 
 interface IButton {
-    type?: ButtonType
-    onClick?: () => any
-    disabled?: boolean
-    children?: string
+    type?: ButtonType;
+    onClick?: () => any;
+    disabled?: boolean;
+    children?: string;
 }
 
 export function Button(props: IButton) {
-    const { type = ButtonType.contained, onClick, disabled, children = 'Button' } = props
+    const { type = ButtonType.contained, onClick, disabled, children = 'Button' } = props;
+
     return (
-        <button className={`Button Button-${type}`} onClick={onClick} disabled={disabled}>
+        <button
+            className={`Button Button-${type}`}
+            onClick={onClick}
+            disabled={disabled}
+        >
             {children}
         </button>
-    )
+    );
 }
