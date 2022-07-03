@@ -14,7 +14,7 @@ interface IButton {
 }
 
 export function Button(props: IButton) {
-    const { type = ButtonType.contained, onClick = () => { }, disabled = false, children = 'Button' } = props
+    const { type = ButtonType.contained, onClick, disabled, children = 'Button' } = props
     return (
         <button className={`Button Button-${type}`} onClick={onClick} disabled={disabled}>
             {children}
