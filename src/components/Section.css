@@ -1,0 +1,17 @@
+.section {
+    border-radius: 3px;
+    background-color: #ffffff;
+    display: flex;
+}
+
+.section__title {
+    margin: 10px 30px;
+}
+
+.section__left-content {
+    flex: 1 1;
+}
+
+.section__right-content {
+    flex: 0 0 200px;
+}
