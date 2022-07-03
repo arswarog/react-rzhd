@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import './Button.css';
 
 export enum ButtonType {
     text = 'text',
@@ -10,13 +10,13 @@ interface IButton {
     type?: ButtonType
     onClick?: () => any
     disabled?: boolean
-    children?: ReactNode
+    children?: string
 }
 
 export function Button(props: IButton) {
-    const { type = ButtonType.contained, onClick = () => { }, disabled = false, children } = props
+    const { type = ButtonType.contained, onClick = () => { }, disabled = false, children = 'Button' } = props
     return (
-        <button className={`Button-${type}`} onClick={onClick} disabled={disabled}>
+        <button className={`Button Button-${type}`} onClick={onClick} disabled={disabled}>
             {children}
         </button>
     )
