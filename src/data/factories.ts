@@ -1,3 +1,4 @@
+import { IRoute } from '../models/route';
 import { IStation } from '../models/station';
 
 let _stationIds = 1;
@@ -13,5 +14,19 @@ export function createStation(name: string): IStation {
     return {
         id: _stationIds++,
         name,
+    };
+}
+
+let _routeIds = 1;
+
+/**
+ * Создание марштура
+ */
+export function createRoute(name: string, stations: number[]): IRoute {
+    // проверка данных маршрута
+    return {
+        id: _routeIds++,
+        name,
+        stations: [...stations],
     };
 }
