@@ -1,6 +1,6 @@
-import { TicketPreview } from "./TicketPreview"
+import { TicketPreview } from "./TicketPreview";
 
 export function TicketPreviewList() {
-    return <TicketPreview/>
+  return <TicketPreview />;
 }
 
