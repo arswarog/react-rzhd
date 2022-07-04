@@ -59,7 +59,13 @@ jobs:
                     key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
             -   name: Build packages
-                run: CI=false npm run build
+                run: CI=false PUBLIC_URL=/react-rzhd npm run build
 
             -   name: Testing
                 run: npm test
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./build
