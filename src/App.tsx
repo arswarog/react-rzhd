@@ -28,6 +28,8 @@ function App() {
 
     return (
         <div className="App">
+            <h1>Просмотр маршрутов</h1>
+
             <Section>
                 <SectionLeftContent title="Станции">stations</SectionLeftContent>
                 <SectionRightContent title="Маршруты">

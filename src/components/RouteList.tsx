@@ -12,7 +12,10 @@ export const RouteList = ({ routes }: IProps) => (
         id="route-list"
     >
         {routes.map((route) => (
-            <li className="route-list__item">
+            <li
+                key={route.id}
+                className="route-list__item"
+            >
                 <h4 className="route-list__title">{route.name}</h4>
                 <div className="route-list__info">
                     <span className="data">
