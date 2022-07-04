@@ -1,3 +1,5 @@
+import { SyntheticEvent, useState } from 'react';
+
 export enum StationInputType {
     from = 'from',
     to = 'to',
@@ -5,8 +7,34 @@ export enum StationInputType {
 
 interface IProps {
     type: StationInputType;
+    onChange: (value: string) => void;
 }
 
 export function StationInput(props: IProps) {
-    return <input id={'station-input-' + props.type} />;
+    const [value, setValue] = useState('');
+
+    function onChange(event: SyntheticEvent) {
+        const newValue = (event.target as HTMLInputElement).value;
+
+        setValue(newValue);
+        props.onChange(newValue);
+    }
+
+    function onClear() {
+        setValue('');
+    }
+
+    console.log('render with ' + value);
+
+    return (
+        <div>
+            <input
+                id={'station-input-' + props.type}
+                value={value}
+                onChange={onChange}
+            />
+            {value}
+            <button onClick={onClear}>clear</button>
+        </div>
+    );
 }

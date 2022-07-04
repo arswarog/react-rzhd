@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
 import './App.css';
 import { Button } from './components/Button';
 import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
+import { StationInput, StationInputType } from './components/StationInput';
 import { allRoutes } from './data/routes';
 
 const initialData = [
@@ -16,6 +17,8 @@ const initialData = [
 function App() {
     const [data, setData] = useState(initialData);
 
+    const [value, setValue] = useState('');
+
     function addItem() {
         setData([
             ...data,
@@ -26,15 +29,24 @@ function App() {
         ]);
     }
 
+    function onChange(event: string) {
+        setValue(event);
+    }
+
     return (
         <div className="App">
+            <StationInput
+                type={StationInputType.from}
+                onChange={onChange}
+            />
+
             <Section>
                 <SectionLeftContent title="Станции">stations</SectionLeftContent>
                 <SectionRightContent title="Маршруты">
                     <RouteList routes={allRoutes} />
                 </SectionRightContent>
             </Section>
-
+            {value}
             <Button onClick={addItem}>add item</Button>
 
             <ul>
