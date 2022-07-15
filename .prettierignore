@@ -1,0 +1,8 @@
+build
+coverage
+generated-docs
+*.d.ts
+package.json
+package-lock.json
+tsconfig.json
+public/manifest.json
