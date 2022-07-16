@@ -1,38 +1,49 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { Button } from './components/Button';
+import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
-import { ITicket, TicketList } from './components/TicketList';
-import logo from './logo.svg';
+import { allRoutes } from './data/routes';
 
-const initialTickets = [
-    {
-        src: 'Source',
-        dst: 'Destination',
-        stop_number: 8,
-    },
+const initialData = [
+    { id: 1, title: '123' },
+    { id: 2, title: '32435' },
+    { id: 3, title: '52' },
+    { id: 4, title: 'dfgdf' },
 ];
 
 function App() {
-    const [tickets, setTickets] = useState(initialTickets);
+    const [data, setData] = useState(initialData);
 
     function addItem() {
-        setTickets([
-            ...tickets,
+        setData([
+            ...data,
             {
-                src: 'City1',
-                dst: 'City2',
-                stop_number: 2,
+                id: data.length + 1,
+                title: Math.random().toString(36).substring(2),
             },
         ]);
     }
 
-    console.log('render');
-
     return (
         <div className="App">
-            <button onClick={addItem}>add item</button>
-            <TicketList tickets={tickets} />
+            <h1>Просмотр маршрутов</h1>
+
+            <Section>
+                <SectionLeftContent title="Станции">stations</SectionLeftContent>
+                <SectionRightContent title="Маршруты">
+                    <RouteList routes={allRoutes} />
+                </SectionRightContent>
+            </Section>
+
+            <Button onClick={addItem}>add item</Button>
+
+            <ul>
+                {data.map((item) => (
+                    <li key={item.id}>{item.title}</li>
+                ))}
+            </ul>
         </div>
     );
 }
