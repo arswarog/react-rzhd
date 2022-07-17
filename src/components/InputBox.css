@@ -1,0 +1,20 @@
+.InputSearchBox {
+  width: 475px;
+  height: 45px;
+  position: absolute;
+}
+
+.InputSearchBox-from {
+  width: 200px;
+  height: 40px;
+  border: solid;
+  position: absolute;
+}
+
+.InputSearchBox-to {
+  width: 200px;
+  height: 40px;
+  left: 270px;
+  border: solid black;
+  position: absolute;
+}
