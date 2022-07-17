@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { CityList } from './components/CityList';
 import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
 import { allRoutes } from './data/routes';
+import { allStations } from './data/stations';
 
 const initialData = [
     { id: 1, title: '123' },
@@ -28,7 +30,9 @@ function App() {
     return (
         <div className="App">
             <Section>
-                <SectionLeftContent title="Станции">stations</SectionLeftContent>
+                <SectionLeftContent title="Станции">
+                    <CityList stations={allStations} />
+                </SectionLeftContent>
                 <SectionRightContent title="Маршруты">
                     <RouteList routes={allRoutes} />
                 </SectionRightContent>
