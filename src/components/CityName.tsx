@@ -1,7 +1,9 @@
+import { IStation } from '../models/station';
+
 interface IProps {
-    name: string;
+    station: IStation;
 }
 
-export function CityName({ name }: IProps) {
-    return <div>{name}</div>;
+export function StationName({ station }: IProps) {
+    return <div>{station.name}</div>;
 }

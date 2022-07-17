@@ -1,5 +1,6 @@
 import './StationInput.css';
-import { SyntheticEvent } from 'react';
+
+import { IStation } from '../models/station';
 
 export enum StationInputType {
     src = 'src',
@@ -8,8 +9,8 @@ export enum StationInputType {
 
 interface IProps {
     type: StationInputType;
-    stations: string[];
-    onChange?: (e: SyntheticEvent) => void;
+    stations: IStation[];
+    onChange?: (stationId: number) => void;
 }
 
 export function StationInput({ type, stations, onChange }: IProps) {
@@ -18,14 +19,13 @@ export function StationInput({ type, stations, onChange }: IProps) {
             <input
                 name={type}
                 autoComplete="off"
-                onChange={onChange}
             />
             <ul
                 id={`route-search-${type}-suggest`}
-                className="route-search__suggest route-search__suggest_open"
+                className="route-search__suggest"
             >
                 {stations.map((item) => (
-                    <li className="route-search__suggest-item">{item}</li>
+                    <li className="route-search__suggest-item">{item.name}</li>
                 ))}
             </ul>
         </div>

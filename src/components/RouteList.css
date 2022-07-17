@@ -1,20 +1,18 @@
-.route-list {
-    display: block;
-    margin: 0;
-    padding: 0;
+.ticket-list {
+    padding: 1px;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid black;
 }
 
-.route-list__item {
-    display: block;
-    border-radius: 1px;
-    margin: 2px;
-    padding: 5px 20px;
-    border: #e5e5e5 1px solid;
-
-    background-color: #f5f5f5;
+.ticket {
+    margin: 6px;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background: white;
 }
 
-.route-list__title {
-    padding: 0;
-    margin: 10px 0;
+.ticket--dash {
+    margin: 6px;
 }

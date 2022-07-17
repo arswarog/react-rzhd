@@ -1,29 +1,51 @@
-import { IRoute } from '../models/route';
-
+import { IRoute, RouteID } from '../models/route';
+import { StationID } from '../models/station';
 import './RouteList.css';
 
-interface IProps {
-    routes: IRoute[];
+interface ITicket {
+    src: string;
+    dst: string;
+    stop_number: number;
 }
 
-export const RouteList = ({ routes }: IProps) => (
-    <ul
-        className="route-list"
-        id="route-list"
-    >
-        {routes.map((route) => (
-            <li
-                key={route.id}
-                className="route-list__item"
-            >
-                <h4 className="route-list__title">{route.name}</h4>
-                <div className="route-list__info">
-                    <span className="data">
-                        <span className="data__name">ID:</span>
-                        <span className="data__value">{route.id}</span>
-                    </span>
+interface IProps {
+    loading: boolean;
+    routes: IRoute[];
+    source: StationID;
+    destination: StationID;
+
+    onSelect?(routeId: RouteID): void;
+}
+
+export function RouteList({}: IProps) {
+    const tickets: ITicket[] = [
+        {
+            dst: 'Откуда',
+            src: 'Куда',
+            stop_number: 100500,
+        },
+    ];
+
+    if (tickets.length === 0)
+        return (
+            <div className="ticket-list">
+                <div className=" ticket unavail">
+                    <span>This route is not available yet</span>
                 </div>
-            </li>
-        ))}
-    </ul>
-);
+            </div>
+        );
+
+    return (
+        <div className="ticket-list">
+            {tickets.map((ticket: ITicket) => (
+                <div className="ticket">
+                    <span className="ticket--src">{ticket.src}</span>
+                    <span className="ticket--dash">-</span>
+                    <span className="ticket--dst">{ticket.dst}</span>
+                    <br />
+                    <span className="ticket--stop-number">{ticket.stop_number}</span>
+                </div>
+            ))}
+        </div>
+    );
+}

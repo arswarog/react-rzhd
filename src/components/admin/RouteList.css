@@ -1,0 +1,20 @@
+.route-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.route-list__item {
+  display: block;
+  border-radius: 1px;
+  margin: 2px;
+  padding: 5px 20px;
+  border: #e5e5e5 1px solid;
+
+  background-color: #f5f5f5;
+}
+
+.route-list__title {
+  padding: 0;
+  margin: 10px 0;
+}
