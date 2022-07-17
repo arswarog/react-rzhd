@@ -1,12 +1,23 @@
-import React from 'react';
+import './RouteSearch.css';
+
+import { Button } from './Button';
+import { StationInput, StationInputType } from './StationInput';
 
 export function RouteSearch() {
+    const stations: string[] = [];
+
     return (
         <div className="RouteSearch">
-            <div>Import Form</div>
+            <StationInput
+                type={StationInputType.src}
+                stations={stations}
+            ></StationInput>
             <div>Arrow</div>
-            <div>Import Form</div>
-            <div>Button</div>
+            <StationInput
+                type={StationInputType.dst}
+                stations={stations}
+            ></StationInput>
+            <Button>Search</Button>
         </div>
     );
 }

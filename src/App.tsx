@@ -4,6 +4,7 @@ import { Button } from './components/Button';
 import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
 import { allRoutes } from './data/routes';
+import { RouteSearchPage } from './pages/RouteSearchPage';
 
 const initialData = [
     { id: 1, title: '123' },
