@@ -19,16 +19,15 @@ export function StationInput({ type, stations, onChange }: IProps) {
                 name={type}
                 autoComplete="off"
                 onChange={onChange}
+            />
+            <ul
+                id={`route-search-${type}-suggest`}
+                className="route-search__suggest route-search__suggest_open"
             >
-                <ul
-                    id={`route-search-${type}-suggest`}
-                    className="route-search__suggest route-search__suggest_open"
-                >
-                    {stations.map((item) => (
-                        <li className="route-search__suggest-item">{item}</li>
-                    ))}
-                </ul>
-            </input>
+                {stations.map((item) => (
+                    <li className="route-search__suggest-item">{item}</li>
+                ))}
+            </ul>
         </div>
     );
 }

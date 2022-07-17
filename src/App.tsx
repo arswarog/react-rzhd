@@ -5,6 +5,7 @@ import { Button } from './components/Button';
 import { RouteList } from './components/RouteList';
 import { Section, SectionLeftContent, SectionRightContent } from './components/Section';
 import { allRoutes } from './data/routes';
+import { RouteSearchPage } from './pages/RouteSearchPage';
 
 const initialData = [
     { id: 1, title: '123' },
@@ -28,22 +29,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Просмотр маршрутов</h1>
-
-            <Section>
-                <SectionLeftContent title="Станции">stations</SectionLeftContent>
-                <SectionRightContent title="Маршруты">
-                    <RouteList routes={allRoutes} />
-                </SectionRightContent>
-            </Section>
-
-            <Button onClick={addItem}>add item</Button>
-
-            <ul>
-                {data.map((item) => (
-                    <li key={item.id}>{item.title}</li>
-                ))}
-            </ul>
+            <RouteSearchPage></RouteSearchPage>
         </div>
     );
 }
