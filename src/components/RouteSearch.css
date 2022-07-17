@@ -1,0 +1,11 @@
+.RouteSearch {
+    background-color: #fff;
+    width: 75vh;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
