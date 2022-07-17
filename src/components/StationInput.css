@@ -1,0 +1,37 @@
+.route-search__input-box {
+    flex: 2 0 200px;
+    position: relative;
+}
+
+.route-search__input-box input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.route-search__suggest {
+    position: absolute;
+    border: 1px solid #909090;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    background-color: #f5f5f5;
+    list-style-type: none;
+    visibility: hidden;
+}
+
+.route-search__suggest_open {
+    visibility: visible;
+}
+
+.route-search__suggest-item {
+    box-sizing: border-box;
+    padding: 3px 6px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.route-search__suggest-item:hover,
+.route-search__suggest-item_selected {
+    background-color: #e0e0e0;
+}
