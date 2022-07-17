@@ -46,4 +46,9 @@ describe('String check', () => {
 
         expect(result).toBeTruthy()
     })
+    it('diff by two and more symbols', () => {
+        const result = check('qweeety', 'qwerty')
+
+        expect(result).toBeFalsy()
+    })
 })
