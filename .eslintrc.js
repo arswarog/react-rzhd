@@ -69,9 +69,9 @@ module.exports = {
         'boundaries/ignore': ['**/*.spec.{ts,tsx}'],
     },
     rules: {
-        'boundaries/no-unknown-files': 'error',
+        'boundaries/no-unknown-files': 'off',
         'boundaries/element-types': [
-            'error',
+            'off',
             {
                 default: 'allow',
                 message: '${file.type} is not allowed to import ${dependency.type}',
@@ -90,7 +90,7 @@ module.exports = {
             },
         ],
         'boundaries/external': [
-            'error',
+            'off',
             {
                 default: 'allow',
                 rules: [
