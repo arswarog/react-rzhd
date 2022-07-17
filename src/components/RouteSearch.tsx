@@ -4,11 +4,19 @@ import { Button } from './Button';
 import { StationInput, StationInputType } from './StationInput';
 
 export function RouteSearch() {
+    const stations: string[] = [];
+
     return (
         <div className="RouteSearch">
-            <StationInput type={StationInputType.from}></StationInput>
+            <StationInput
+                type={StationInputType.src}
+                stations={stations}
+            ></StationInput>
             <div>Arrow</div>
-            <StationInput type={StationInputType.to}></StationInput>
+            <StationInput
+                type={StationInputType.dst}
+                stations={stations}
+            ></StationInput>
             <Button>Search</Button>
         </div>
     );
