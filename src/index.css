@@ -1,3 +1,10 @@
+:root {
+  --bg0: #eee;
+  --bg1: #fff;
+  --fg: #000;
+  --accent: #0f0;
+}
+
 body {
   color: black;
   background-color: #f5f5f5;

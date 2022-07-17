@@ -1,8 +1,10 @@
+export type RouteID = number & { _brand: 'RouteID' };
+
 export interface IRoute {
     /**
      * ID
      */
-    id: number;
+    id: RouteID;
     /**
      * Номер маршрута
      */

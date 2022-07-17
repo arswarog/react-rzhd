@@ -1,5 +1,5 @@
-import { IRoute } from '../models/route';
-import { IStation } from '../models/station';
+import { IRoute, RouteID } from '../models/route';
+import { IStation, StationID } from '../models/station';
 
 let _stationIds = 1;
 
@@ -12,7 +12,7 @@ export function createStation(name: string): IStation {
     if (!name) throw new Error('Станция не может иметь пустое название');
 
     return {
-        id: _stationIds++,
+        id: _stationIds++ as StationID,
         name,
     };
 }
@@ -25,7 +25,7 @@ let _routeIds = 1;
 export function createRoute(name: string, stations: number[]): IRoute {
     // проверка данных маршрута
     return {
-        id: _routeIds++,
+        id: _routeIds++ as RouteID,
         name,
         stations: [...stations],
     };
