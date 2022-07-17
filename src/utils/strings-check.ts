@@ -11,12 +11,14 @@ export function check(a: string, b: string): boolean {
     }
 
     let counter = 0;
+    let warning = false;
 
     for (let i = 0; i < a.length; i++) {
         if (a[i] !== b[i]) {
-            if (a[i] === b[i - 1]) return true;
-
-            counter++;
+            if (a[i] === b[i - 1] && !warning) {
+                i++;
+                // warning = true;
+            } else counter++;
         }
     }
 

@@ -46,4 +46,14 @@ describe('String check', () => {
 
         expect(result).toBeTruthy();
     });
+    it('diff by two and more symbols', () => {
+        const result = check('qweeety', 'qwerty');
+
+        expect(result).toBeFalsy();
+    });
+    it('debug', () => {
+        const result = check('qweeeey', 'qwerty');
+
+        expect(result).toBeFalsy();
+    });
 });
