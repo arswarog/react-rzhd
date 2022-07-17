@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import './App.css';
 import { Button } from './components/Button';
@@ -27,11 +27,7 @@ function App() {
         ]);
     }
 
-    return (
-        <div className="App">
-            <RouteSearchPage></RouteSearchPage>
-        </div>
-    );
+    return <RouteSearchPage />;
 }
 
 export default App;
