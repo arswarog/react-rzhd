@@ -1,5 +1,6 @@
-import './StationInput.css';
+import { SyntheticEvent } from 'react';
 
+import './StationInput.css';
 import { IStation } from '../models/station';
 
 export enum StationInputType {
@@ -10,24 +11,36 @@ export enum StationInputType {
 interface IProps {
     type: StationInputType;
     stations: IStation[];
-    onChange?: (stationId: number) => void;
+    onFoundStations?: (stations: IStation[]) => void;
 }
 
-export function StationInput({ type, stations, onChange }: IProps) {
+export function StationInput({ type, stations, onFoundStations }: IProps) {
+    function onChange(e: SyntheticEvent) {
+        if (onFoundStations) {
+            onFoundStations(
+                stations.filter((s) =>
+                    s.name.toLowerCase().includes((e.target as HTMLInputElement).value.toLowerCase()),
+                ),
+            );
+        }
+    }
+
     return (
         <div className="route-search__input-box">
             <input
                 name={type}
                 autoComplete="off"
-            />
-            <ul
-                id={`route-search-${type}-suggest`}
-                className="route-search__suggest"
+                onChange={onChange}
             >
-                {stations.map((item) => (
-                    <li className="route-search__suggest-item">{item.name}</li>
-                ))}
-            </ul>
+                <ul
+                    id={`route-search-${type}-suggest`}
+                    className="route-search__suggest route-search__suggest_open"
+                >
+                    {stations.map((item) => (
+                        <li className="route-search__suggest-item">{item.name}</li>
+                    ))}
+                </ul>
+            </input>
         </div>
     );
 }
