@@ -1,5 +1,6 @@
-import './StationInput.css';
 import { SyntheticEvent } from 'react';
+
+import './StationInput.css';
 import { IStation } from '../models/station';
 
 export enum StationInputType {
