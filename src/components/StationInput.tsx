@@ -18,7 +18,7 @@ interface IProps {
 export function StationInput({ type, stations, onChange }: IProps) {
     const [value, setValue] = useState('');
     const [id, setId] = useState<StationID>(noStation);
-    const [suggest, setSuggest] = useState(false);
+    const [showSuggest, setSuggest] = useState(false);
 
     function handleSelect(station: IStation) {
         console.log(station);
@@ -71,7 +71,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
             <button onClick={handleClear}>X</button>
             <ul
                 id={`route-search-${type}-suggest`}
-                className={'route-search__suggest ' + (suggest ? 'route-search__suggest_open' : '')}
+                className={'route-search__suggest ' + (showSuggest ? 'route-search__suggest_open' : '')}
             >
                 {stations.map((item) => (
                     <li
