@@ -19,13 +19,16 @@ export function StationInput({ type, stations, onChange }: IProps) {
     const [value, setValue] = useState('');
     const [id, setId] = useState<StationID>(noStation);
     const [showSuggest, setSuggest] = useState(false);
+    let selectInProgress = false;
 
     function handleSelect(station: IStation) {
+        selectInProgress = true;
         console.log(station);
         setValue(station.name);
         setId(station.id);
         onChange?.(station.id);
         setSuggest(false);
+        selectInProgress = false;
     }
 
     function handleChange(e: any) {
@@ -54,7 +57,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     function handleBlur() {
-        setTimeout(() => setSuggest(false), 1000);
+        if (selectInProgress) setSuggest(false);
     }
 
     return (
