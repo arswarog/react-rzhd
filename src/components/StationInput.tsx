@@ -19,16 +19,15 @@ export function StationInput({ type, stations, onChange }: IProps) {
     const [value, setValue] = useState('');
     const [id, setId] = useState<StationID>(noStation);
     const [showSuggest, setSuggest] = useState(false);
-    let selectInProgress = false;
+    let preventBlur = false;
 
     function handleSelect(station: IStation) {
-        selectInProgress = true;
         console.log(station);
         setValue(station.name);
         setId(station.id);
         onChange?.(station.id);
         setSuggest(false);
-        selectInProgress = false;
+        preventBlur = false;
     }
 
     function handleChange(e: any) {
@@ -57,7 +56,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     function handleBlur() {
-        if (selectInProgress) setSuggest(false);
+        if (!preventBlur) setSuggest(false);
     }
 
     return (
@@ -80,7 +79,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
                     <li
                         key={item.id}
                         className="route-search__suggest-item"
-                        onClick={() => handleSelect(item)}
+                        onMouseDown={() => handleSelect(item)}
                     >
                         {item.name}
                     </li>
