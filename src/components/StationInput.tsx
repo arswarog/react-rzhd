@@ -54,7 +54,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     function handleBlur() {
-        setTimeout(() => setSuggest(false), 1000);
+        setSuggest(false);
     }
 
     return (
@@ -77,7 +77,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
                     <li
                         key={item.id}
                         className="route-search__suggest-item"
-                        onClick={() => handleSelect(item)}
+                        onMouseDown={() => handleSelect(item)}
                     >
                         {item.name}
                     </li>
