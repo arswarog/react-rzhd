@@ -19,7 +19,6 @@ export function StationInput({ type, stations, onChange }: IProps) {
     const [value, setValue] = useState('');
     const [id, setId] = useState<StationID>(noStation);
     const [showSuggest, setSuggest] = useState(false);
-    let preventBlur = false;
 
     function handleSelect(station: IStation) {
         console.log(station);
@@ -27,7 +26,6 @@ export function StationInput({ type, stations, onChange }: IProps) {
         setId(station.id);
         onChange?.(station.id);
         setSuggest(false);
-        preventBlur = false;
     }
 
     function handleChange(e: any) {
@@ -56,7 +54,7 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     function handleBlur() {
-        if (!preventBlur) setSuggest(false);
+        setSuggest(false);
     }
 
     return (
