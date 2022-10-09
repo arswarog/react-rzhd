@@ -58,23 +58,25 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     return (
-        <div className="route-search__input-box">
+        <div className="search-input">
             {/* {value} {id} */}
             {/* {value} */}
-            <div className="route-search__input-box__flex">
-                <div className="route-search__input-box__item">
-                    <input
-                        name={type}
-                        value={value}
-                        autoComplete="off"
-                        onChange={handleChange}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                    />
-                </div>
-                <div className="route-search__input-box__item">
-                    <button onClick={handleClear}>X</button>
-                </div>
+            <div className="search-input__wrapper">
+                <input
+                    className="search-input__input"
+                    name={type}
+                    value={value}
+                    autoComplete="off"
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+                <button
+                    className="search-input__button"
+                    onClick={handleClear}
+                >
+                    X
+                </button>
             </div>
             <div>
                 <ul

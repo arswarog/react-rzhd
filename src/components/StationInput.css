@@ -1,21 +1,33 @@
-.route-search__input-box {
+.search-input {
     flex: 2 0 200px;
     position: relative;
     
 }
 
-.route-search__input-box__flex {
+.search-input__wrapper {
     flex: 0 0 auto;
     flex-direction: row;
     flex-wrap: nowrap;
+
+    position: relative;
 }
 
-.route-search__input-box__item {
+.search-input__input {
     display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 18px;
 }
 
-.route-search__input-box input {
-    width: 100%;
+.search-input__button {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+
+    border: none;
+    background: transparent;
+
+    display: block;
     box-sizing: border-box;
 }
 
