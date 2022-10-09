@@ -6,6 +6,8 @@ import { allRoutes } from '../data/routes';
 import { allStations } from '../data/stations';
 import { StationID } from '../models/station';
 
+import { ReactPlayground } from './ReactPlayground';
+
 /**
  * Страница поиска и выбора маршрута
  */
@@ -36,6 +38,7 @@ export function RouteSearchPage() {
                 source={sourceStation}
                 destination={destinationStation}
             />
+            <ReactPlayground />
         </div>
     );
 }
