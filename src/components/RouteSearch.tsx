@@ -38,7 +38,12 @@ export function RouteSearch({ stations, onSubmit }: IProps) {
                 stations={stations}
                 onChange={handleChangeSourceId}
             />
-            <div>Arrow</div>
+
+            <img
+                src="стрелка.png"
+                alt="Arrow"
+            />
+
             <StationInput
                 type={StationInputType.dst}
                 stations={stations}

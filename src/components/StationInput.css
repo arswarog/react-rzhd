@@ -1,6 +1,17 @@
 .route-search__input-box {
     flex: 2 0 200px;
     position: relative;
+    
+}
+
+.route-search__input-box__flex {
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.route-search__input-box__item {
+    display: inline-block;
 }
 
 .route-search__input-box input {
