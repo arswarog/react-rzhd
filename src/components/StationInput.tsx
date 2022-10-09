@@ -58,31 +58,42 @@ export function StationInput({ type, stations, onChange }: IProps) {
     }
 
     return (
-        <div className="route-search__input-box">
-            {value} {id}
-            <input
-                name={type}
-                value={value}
-                autoComplete="off"
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-            />
-            <button onClick={handleClear}>X</button>
-            <ul
-                id={`route-search-${type}-suggest`}
-                className={'route-search__suggest ' + (showSuggest ? 'route-search__suggest_open' : '')}
-            >
-                {stations.map((item) => (
-                    <li
-                        key={item.id}
-                        className="route-search__suggest-item"
-                        onClick={() => handleSelect(item)}
-                    >
-                        {item.name}
-                    </li>
-                ))}
-            </ul>
+        <div className="search-input">
+            {/* {value} {id} */}
+            {/* {value} */}
+            <div className="search-input__wrapper">
+                <input
+                    className="search-input__input"
+                    name={type}
+                    value={value}
+                    autoComplete="off"
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+                <button
+                    className="search-input__button"
+                    onClick={handleClear}
+                >
+                    X
+                </button>
+            </div>
+            <div>
+                <ul
+                    id={`route-search-${type}-suggest`}
+                    className={'route-search__suggest ' + (showSuggest ? 'route-search__suggest_open' : '')}
+                >
+                    {stations.map((item) => (
+                        <li
+                            key={item.id}
+                            className="route-search__suggest-item"
+                            onClick={() => handleSelect(item)}
+                        >
+                            {item.name}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }
