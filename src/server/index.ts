@@ -27,7 +27,7 @@ function myLogger(req: Request, res: Response, next: NextFunction) {
 }
 
 app.use('/static/', myLogger);
-
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static('build'));
 
 app.get('/api', (req, res) => {
