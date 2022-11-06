@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "run-p start:server start:client",
-    "start:server": "nodemon src/server/index.ts",
+    "start:server": "nodemon src/server/index.ts -w src/server/**/*.ts",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
