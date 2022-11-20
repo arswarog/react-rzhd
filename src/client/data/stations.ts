@@ -1,4 +1,4 @@
-import { IStation } from '../models/station';
+import { IStation } from '../models/station/types';
 
 import { createStation } from './factories';
 

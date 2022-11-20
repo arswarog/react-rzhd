@@ -1,4 +1,4 @@
-import { IStation } from '../models/station';
+import { IStation } from '../models/station/types';
 
 interface IProps {
     station: IStation;

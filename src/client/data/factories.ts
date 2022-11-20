@@ -1,5 +1,5 @@
 import { IRoute, RouteID } from '../models/route';
-import { IStation, StationID } from '../models/station';
+import { IStation, StationID } from '../models/station/types';
 
 let _stationIds = 1;
 

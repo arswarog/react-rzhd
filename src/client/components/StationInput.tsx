@@ -2,7 +2,7 @@ import './StationInput.css';
 
 import { useState } from 'react';
 
-import { IStation, noStation, StationID } from '../models/station';
+import { IStation, noStation, StationID } from '../models/station/types';
 
 export enum StationInputType {
     src = 'src',

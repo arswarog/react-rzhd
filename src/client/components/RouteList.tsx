@@ -1,5 +1,5 @@
 import { IRoute, RouteID } from '../models/route';
-import { StationID } from '../models/station';
+import { StationID } from '../models/station/types';
 import './RouteList.css';
 
 interface ITicket {

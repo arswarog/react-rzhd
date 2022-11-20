@@ -4,7 +4,7 @@ import { RouteList } from '../components/RouteList';
 import { RouteSearch } from '../components/RouteSearch';
 import { allRoutes } from '../data/routes';
 import { allStations } from '../data/stations';
-import { StationID } from '../models/station';
+import { StationID } from '../models/station/types';
 
 /**
  * Страница поиска и выбора маршрута
