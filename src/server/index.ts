@@ -3,44 +3,13 @@ import path from 'path';
 
 import express, { Request, Response, NextFunction } from 'express';
 
-const dataFilename = path.resolve(__dirname, '../../data/users.json');
+import { usersController } from './controllers/users';
+import { refreshData } from './dal/users';
 
 const app = express();
 const port = 3001;
 
-interface IUser {
-    id: number;
-    name: string;
-    lastname: string;
-}
-
-let users: IUser[] = [];
-
-function readUsers() {
-    readFile(dataFilename, (err, data) => {
-        if (data) {
-            try {
-                users = JSON.parse(data.toString());
-            } catch (_) {}
-        }
-    });
-}
-
-function writeUsers() {
-    writeFile(dataFilename, JSON.stringify(users, null, 2), (err) => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log('Wrote users.json');
-        }
-    });
-}
-
-function generateNewID() {
-    return Math.max(0, ...users.map((item) => item.id)) + 1;
-}
-
-readUsers();
+refreshData();
 
 function myLogger(req: Request, res: Response, next: NextFunction) {
     console.log(req.method + ' ' + req.path);
@@ -59,21 +28,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('build'));
 
+app.use('/api/users', usersController);
+
 app.get('/api/users', (req, res) => {
-    res.send(users);
-});
-
-app.post('/api/users', (req, res) => {
-    const record: IUser = {
-        ...req.body,
-        id: generateNewID(),
-    };
-
-    users.push(record);
-
-    writeUsers();
-
-    res.status(201).send(record);
+    // res.send(users);
 });
 
 // GET    /api/users     // вернуть всех пользователей
@@ -83,81 +41,81 @@ app.post('/api/users', (req, res) => {
 // POST   /api/users     // добавить пользователя
 // DELETE /api/users/1   // удалить пользователя №1
 
-app.get('/api/users/:id', (req, res) => {
-    const id = Number(req.params.id);
+// app.get('/api/users/:id', (req, res) => {
+//     const id = Number(req.params.id);
 
-    const user = users.find((item) => item.id === id);
+//     const user = users.find((item) => item.id === id);
 
-    if (user) {
-        res.send(user);
+//     if (user) {
+//         res.send(user);
 
-        return;
-    }
+//         return;
+//     }
 
-    res.sendStatus(404);
-});
+//     res.sendStatus(404);
+// });
 
-app.put('/api/users/:id', (req, res) => {
-    const id = +req.params.id;
-    const index = users.findIndex((item) => item.id === id);
+// app.put('/api/users/:id', (req, res) => {
+//     const id = +req.params.id;
+//     const index = users.findIndex((item) => item.id === id);
 
-    if (index === -1) {
-        res.sendStatus(404);
+//     if (index === -1) {
+//         res.sendStatus(404);
 
-        return;
-    }
+//         return;
+//     }
 
-    const record: IUser = {
-        ...(req.body as IUser),
-        id,
-    };
+//     const record: IUser = {
+//         ...(req.body as IUser),
+//         id,
+//     };
 
-    users[index] = record;
+//     users[index] = record;
 
-    writeUsers();
+//     writeUsers();
 
-    res.send(record);
-});
+//     res.send(record);
+// });
 
-app.patch('/api/users/:id', (req, res) => {
-    const id = +req.params.id;
-    const index = users.findIndex((item) => item.id === id);
+// app.patch('/api/users/:id', (req, res) => {
+//     const id = +req.params.id;
+//     const index = users.findIndex((item) => item.id === id);
 
-    if (index === -1) {
-        res.sendStatus(404);
+//     if (index === -1) {
+//         res.sendStatus(404);
 
-        return;
-    }
+//         return;
+//     }
 
-    const record: IUser = {
-        ...users[index],
-        ...(req.body as IUser),
-        id,
-    };
+//     const record: IUser = {
+//         ...users[index],
+//         ...(req.body as IUser),
+//         id,
+//     };
 
-    users[index] = record;
+//     users[index] = record;
 
-    writeUsers();
+//     writeUsers();
 
-    res.send(record);
-});
+//     res.send(record);
+// });
 
-app.delete('/api/users/:id', (req, res) => {
-    const id = +req.params.id;
-    const index = users.findIndex((item) => item.id === id);
+// app.delete('/api/users/:id', (req, res) => {
+//     const id = +req.params.id;
+//     const index = users.findIndex((item) => item.id === id);
 
-    if (index === -1) {
-        res.sendStatus(404);
+//     if (index === -1) {
+//         res.sendStatus(404);
 
-        return;
-    }
+//         return;
+//     }
 
-    users.splice(index, 1);
+//     users.splice(index, 1);
 
-    writeUsers();
+//     writeUsers();
 
-    res.sendStatus(204);
-});
+//     res.sendStatus(204);
+// });
 
 app.all('*', (req, res) => {
     res.status(404).send({ error: 'not found' });
